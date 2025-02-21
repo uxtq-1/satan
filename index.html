@@ -1,218 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ==================================================================
+       Document Metadata & External Resources
+       ================================================================== -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ops Online Support</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPS Online Support - Futuristic Achievements</title>
+  
+  <!-- ==================================================================
+       CSS Stylesheets & Inline Landing Page Styles
+       ================================================================== -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
+  <!-- Inline styles specific to this landing page -->
   <style>
-    /* CSS Reset */
-    * {
+    /* ==================================================================
+         Landing Page Base Styles: Default Dark Theme
+         ================================================================== */
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      background: #f4f4f4;
-      color: #333;
-    }
-    /* Header & Navigation */
-    header {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #000; /* Dark background */
       color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-      position: relative;
       overflow: hidden;
     }
-    header::after {
-      content: "";
+    /* ==================================================================
+         Particles Background Container
+         ================================================================== */
+    #particles-js {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255, 255, 255, 0.05);
-      animation: drift 15s ease-in-out infinite;
-      z-index: 1;
+      z-index: -1;
     }
-    @keyframes drift {
-      0%   { transform: translate(0, 0); }
-      50%  { transform: translate(50px, -50px); }
-      100% { transform: translate(0, 0); }
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.2);
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 700;
-    }
-    header .container {
+    /* ==================================================================
+         Landing Content Container
+         ================================================================== */
+    .landing-container {
       position: relative;
-      z-index: 2;
-    }
-    /* Hero Section */
-    .hero {
-      padding: 80px 20px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    .btn {
-      background: #ff416c;
-      color: #fff;
-      padding: 15px 30px;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #ff4b2b;
-    }
-    /* Sections */
-    section {
-      padding: 60px 20px;
+      z-index: 10;
       text-align: center;
+      padding-top: 20%;
     }
-    section h2 {
-      margin-bottom: 20px;
+    /* ==================================================================
+         Typewriter Effect Text
+         ================================================================== */
+    .typewriter-text {
       font-size: 2.5rem;
-      color: #203a43;
+      margin-bottom: 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #fff;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.7s step-end infinite;
     }
-    /* Features Section */
-    .features {
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #fff; }
+    }
+    /* ==================================================================
+         Achievement Counters Styling
+         ================================================================== */
+    .achievement-counters {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      gap: 50px;
+      margin-top: 40px;
     }
-    .feature {
-      background: #fff;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      flex: 1 1 300px;
-      max-width: 300px;
+    .counter {
+      font-size: 2rem;
     }
-    .feature h3 {
-      margin-bottom: 10px;
-      color: #ff416c;
+    /* ==================================================================
+         Description Text
+         ================================================================== */
+    .description {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .feature p {
-      font-size: 0.9rem;
-    }
-    /* Contact Form */
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    form button {
+    /* ==================================================================
+         Call-to-Action Button Styling
+         ================================================================== */
+    .cta-button {
+      margin-top: 40px;
       padding: 15px 30px;
-      background: #ff416c;
-      color: #fff;
+      font-size: 1.2rem;
+      background-color: #00ffff;
+      color: #000;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s;
     }
-    form button:hover {
-      background: #ff4b2b;
-    }
-    /* Footer */
-    footer {
-      background: #203a43;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
+    .cta-button:hover {
+      background-color: #7e69ab;
     }
   </style>
+  
+  <!-- ==================================================================
+       Particles.js Library
+       ================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <!-- Header with Navigation -->
-  <header>
-    <nav>
-      <div class="logo"><a href="#">Ops Online Support</a></div>
-      <div class="menu">
-        <a href="#features">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="hero">
-        <h1>Ops Online Support</h1>
-        <p>Your trusted partner in digital operations excellence.</p>
-        <a href="#contact" class="btn">Get Started</a>
-      </div>
+  <!-- ==================================================================
+       Particles Background Container
+       ================================================================== -->
+  <div id="particles-js"></div>
+  
+  <!-- ==================================================================
+       Landing Page Content Container
+       ================================================================== -->
+  <div class="landing-container">
+    <!-- ==================================================================
+         Typewriter Effect Text: Dynamic Intro Message
+         ================================================================== -->
+    <div class="typewriter-text">
+      OPS Online Support: Achieving Futuristic Results...
     </div>
-  </header>
-  
-  <!-- Services Section -->
-  <section id="features">
-    <h2>Our Services</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>24/7 Support</h3>
-        <p>Round-the-clock support to ensure seamless operational performance.</p>
-      </div>
-      <div class="feature">
-        <h3>Real-Time Monitoring</h3>
-        <p>Advanced tools for real-time system monitoring and analytics.</p>
-      </div>
-      <div class="feature">
-        <h3>Expert Consultation</h3>
-        <p>Access to industry-leading experts for customized IT solutions.</p>
-      </div>
+    
+    <!-- ==================================================================
+         Achievement Counters: Display Outstanding Results
+         ================================================================== -->
+    <div class="achievement-counters">
+      <div class="counter" id="counter-efficiency">0%</div>
+      <div class="counter" id="counter-response">0s</div>
+      <div class="counter" id="counter-satisfaction">0%</div>
     </div>
-  </section>
+    
+    <!-- ==================================================================
+         Description Paragraph: Technical, Professional Message
+         ================================================================== -->
+    <div class="description">
+      Experience the next generation of remote assistance. Our cutting-edge strategies deliver unmatched efficiency, lightning-fast response times, and customer satisfaction that redefines excellence.
+    </div>
+    
+    <!-- ==================================================================
+         Call-to-Action Button: Navigate to Main OPS Online Support Page
+         ================================================================== -->
+    <button class="cta-button" onclick="goToMainPage()">Click to Advance</button>
+  </div>
   
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      At Ops Online Support, we specialize in delivering state-of-the-art operational support solutions that drive efficiency and innovation. Our team is dedicated to empowering your business through cutting-edge technology and unparalleled service.
-    </p>
-  </section>
-  
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Get in touch to discover how we can help elevate your operations to the next level.</p>
-    <form action="#" method="post">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-  
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Ops Online Support. All Rights Reserved.</p>
-  </footer>
+  <!-- ==================================================================
+       JavaScript: Landing Page Effects & Navigation
+       ================================================================== -->
+  <script>
+    // ------------------------------------------------------------------
+    // Particles.js Configuration: Futuristic Background Effect
+    // ------------------------------------------------------------------
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: '#00ffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#00ffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 3, direction: 'none', random: false, straight: false, out_mode: 'out' }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { repulse: { distance: 100, duration: 0.4 } }
+      }
+    });
+    
+    // ------------------------------------------------------------------
+    // Achievement Counters: Animate Metrics for a Sense of Achievement
+    // ------------------------------------------------------------------
+    function animateCounter(id, target, suffix) {
+      const element = document.getElementById(id);
+      let current = 0;
+      const increment = target / 200; // Adjust speed here
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        element.textContent = Math.floor(current) + suffix;
+      }, 10);
+    }
+    animateCounter('counter-efficiency', 95, '%');  // 95% Efficiency
+    animateCounter('counter-response', 1, 's');       // 1 second Response Time
+    animateCounter('counter-satisfaction', 98, '%');  // 98% Satisfaction
+    
+    // ------------------------------------------------------------------
+    // Navigation Function: Redirect to Main OPS Online Support Page
+    // ------------------------------------------------------------------
+    function goToMainPage() {
+      window.location.href = 'index.html'; // Update this URL as needed
+    }
+  </script>
 </body>
 </html>
