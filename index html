@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPS Online Support - Futuristic Achievements</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .landing-container {
+      width: 75%;
+      margin: 0 auto;
+      padding-top: 20%;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    .typewriter-text {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #fff;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.7s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #fff; }
+    }
+    .achievement-counters {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 40px;
+    }
+    .counter {
+      font-size: 2rem;
+    }
+    .description {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .cta-button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .cta-button:hover {
+      background-color: #7e69ab;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <main class="landing-container">
+    <section class="intro">
+      <div class="typewriter-text">
+        OPS Online Support: Achieving Futuristic Results...
+      </div>
+    </section>
+    <section class="statistics achievement-counters">
+      <div class="counter" id="counter-efficiency">0%</div>
+      <div class="counter" id="counter-response">0s</div>
+      <div class="counter" id="counter-satisfaction">0%</div>
+    </section>
+    <section class="info">
+      <div class="description">
+        Experience the next generation of remote assistance. Our cutting-edge strategies deliver unmatched efficiency, lightning-fast response times, and customer satisfaction that redefines excellence.
+      </div>
+    </section>
+    <section class="navigation">
+      <button class="cta-button" onclick="goToMainPage()">Enter Portal</button>
+    </section>
+  </main>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: '#00ffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#00ffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 3, direction: 'none', random: false, straight: false, out_mode: 'out' }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { repulse: { distance: 100, duration: 0.4 } }
+      }
+    });
+
+    function animateCounter(id, target, suffix) {
+      const element = document.getElementById(id);
+      let current = 0;
+      const increment = target / 200;
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        element.textContent = Math.floor(current) + suffix;
+      }, 10);
+    }
+    animateCounter('counter-efficiency', 95, '%');
+    animateCounter('counter-response', 1, 's');
+    animateCounter('counter-satisfaction', 98, '%');
+
+    function goToMainPage() {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
